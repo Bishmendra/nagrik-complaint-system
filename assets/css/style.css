@@ -1,0 +1,452 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 40px 0;
+
+    flex: 1;
+}
+
+header {
+    background: #003366;
+    color: white;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #00cc66;
+}
+
+footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+
+}
+
+
+.hero {
+    height: 90vh;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url('/nagrik-complaint/assets/images/evrest.jpg');
+
+
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+;
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: #00cc66;
+    color: white;
+
+    padding: 15px 30px;
+
+    text-decoration: none;
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #00994d;
+}
+
+
+
+.container h1 {
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.container p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* complaint-form */
+
+.complaint-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.complaint-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.complaint-form input,
+.complaint-form textarea,
+.complaint-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.complaint-form textarea {
+    height: 120px;
+}
+
+.complaint-form button {
+    margin-top: 20px;
+    background: #00aa55;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.complaint-form button:hover {
+    background: #008844;
+}
+
+/* sucess box */
+
+.success-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    margin-top: 40px;
+}
+
+.success-box h1 {
+    color: green;
+    margin-bottom: 20px;
+}
+
+.success-box p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.success-box h2 {
+    color: #003366;
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.secondary-btn {
+    background: #003366;
+    margin-left: 10px;
+}
+
+.secondary-btn:hover {
+    background: #001f4d;
+}
+
+
+
+
+
+.status {
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.pending {
+    background: orange;
+}
+
+.in-progress {
+    background: #007bff;
+}
+
+.completed {
+    background: green;
+}
+
+/* search_form */
+.search-form {
+    margin-top: 30px;
+
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.search-form input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+.search-form button {
+    background: #003366;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #001f4d;
+}
+
+/* search result  */
+.search-result {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-result h2 {
+    color: #003366;
+
+    margin-bottom: 20px;
+}
+
+.search-result p {
+    margin-bottom: 15px;
+
+    line-height: 1.8;
+}
+
+.not-found {
+    background: #ffdddd;
+
+    color: red;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+/* admin login */
+.login-form {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    max-width: 500px;
+
+    margin: auto;
+}
+
+.login-form label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+.login-form button {
+    margin-top: 20px;
+
+    background: #003366;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: #001f4d;
+}
+
+/* dashboard  */
+.dashboard-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.dashboard-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 15px;
+
+    border: 1px solid #ddd;
+
+    text-align: center;
+}
+
+.dashboard-table th {
+    background: #003366;
+
+    color: white;
+}
+
+.dashboard-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* update button */
+.update-btn {
+    background: #007bff;
+
+    color: white;
+
+    padding: 8px 15px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+}
+
+.update-btn:hover {
+    background: #0056b3;
+}
+
+/* status update  */
+.status-form {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.status-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.status-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.status-form button {
+    margin-top: 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.status-form button:hover {
+    background: #1e7e34;
+}
