@@ -9,6 +9,18 @@ if(isset($_POST['submit'])){
     $address = $_POST['address'];
     $problem_type = $_POST['problem_type'];
     $description = $_POST['description'];
+    $image_name = $_FILES['image']['name'];
+
+$tmp_name = $_FILES['image']['tmp_name'];
+
+$image_path = "";
+if(!empty($image_name)){
+
+    $image_path = "uploads/" . time() . "_" . $image_name;
+
+    move_uploaded_file($tmp_name, $image_path);
+
+}
 
     // UNIQUE COMPLAINT ID
     $complaint_id =
@@ -17,12 +29,12 @@ if(isset($_POST['submit'])){
     // INSERT QUERY
     $sql = "INSERT INTO complaints
     (complaint_id, fullname, contact, address,
-    problem_type, description)
+    problem_type, description,image)
 
     VALUES
 
     ('$complaint_id', '$fullname', '$contact',
-    '$address', '$problem_type', '$description')";
+    '$address', '$problem_type', '$description','$image_path')";
 
     $result = mysqli_query($conn, $sql);
 
@@ -56,7 +68,7 @@ include 'components/navbar.php';
 
     <h1>Make a Complaint</h1>
 
-    <form action="" method="POST" class="complaint-form">
+    <form action="" method="POST" class="complaint-form" enctype="multipart/form-data">
 
         <label>Full Name</label>
         <input type="text" name="fullname" required>
@@ -79,6 +91,13 @@ include 'components/navbar.php';
 
         <label>Complaint Description</label>
         <textarea name="description" required></textarea>
+        <label>Upload Complaint Image</label>
+
+<input
+    type="file"
+    name="image"
+    accept="image/*"
+>
 
         <button type="submit" name="submit">
             Submit Complaint

@@ -11,10 +11,69 @@ include '../components/db.php';
 include '../components/header.php';
 include '../components/navbar.php';
 
+
+// Total Complaints
+$total_query = mysqli_query($conn,
+"SELECT COUNT(*) as total FROM complaints");
+
+$total = mysqli_fetch_assoc($total_query)['total'];
+
+
+// Pending Complaints
+$pending_query = mysqli_query($conn,
+"SELECT COUNT(*) as pending
+FROM complaints
+WHERE status='Pending'");
+
+$pending = mysqli_fetch_assoc($pending_query)['pending'];
+
+
+// In Progress Complaints
+$progress_query = mysqli_query($conn,
+"SELECT COUNT(*) as progress
+FROM complaints
+WHERE status='In Progress'");
+
+$progress = mysqli_fetch_assoc($progress_query)['progress'];
+
+
+// Completed Complaints
+$completed_query = mysqli_query($conn,
+"SELECT COUNT(*) as completed
+FROM complaints
+WHERE status='Completed'");
+
+$completed = mysqli_fetch_assoc($completed_query)['completed'];
+
+
+
 // Fetch all complaints
 $sql = "SELECT * FROM complaints ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);
 ?>
+<div class="stats-container">
+
+    <div class="card total  ">
+        <h2><?php echo $total; ?></h2>
+        <p>Total Complaints</p>
+    </div>
+
+    <div class="card pending">
+        <h2><?php echo $pending; ?></h2>
+        <p>Pending</p>
+    </div>
+
+    <div class="card progress ">
+        <h2><?php echo $progress; ?></h2>
+        <p>In Progress</p>
+    </div>
+
+    <div class="card completed">
+        <h2><?php echo $completed; ?></h2>
+        <p>Completed</p>
+    </div><br/>
+
+</div>
 
 <div class="container">
 
@@ -38,9 +97,11 @@ $result = mysqli_query($conn, $sql);
 
         <tr>
             <th>ID</th>
-            <th>Complaint ID</th>
+            <th>Address</th>
             <th>Name</th>
             <th>Problem Type</th>
+             <th>Contact</th>
+             <th>Image</th>
             <th>Status</th>
             <th>Date</th>
             <th>Action</th>
@@ -58,7 +119,7 @@ $result = mysqli_query($conn, $sql);
             </td>
 
             <td>
-                <?php echo $row['complaint_id']; ?>
+                <?php echo $row['address']; ?>
             </td>
 
             <td>
@@ -68,6 +129,27 @@ $result = mysqli_query($conn, $sql);
             <td>
                 <?php echo $row['problem_type']; ?>
             </td>
+            <td><?php echo $row['contact']; ?></td>
+            <td>
+
+<?php
+if(!empty($row['image'])){
+?>
+
+<img
+    src="../<?php echo $row['image']; ?>"
+    width="100"
+    height="80"
+    style="object-fit:cover;border-radius:5px;"
+>
+
+<?php
+}else{
+    echo "No Image";
+}
+?>
+
+</td>
 
             <td>
                 <span class="status
